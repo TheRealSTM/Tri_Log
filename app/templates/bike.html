@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <h1>Add Ride</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="" novalidate>
+    <div class="form-group">
+      {{ render_field(form.distance, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.duration, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.pace, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.heart_rate, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.watts, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.body, class_="form-control") }}
+    </div>
+    <p><input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+  </form>
+{% endblock %}

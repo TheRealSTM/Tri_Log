@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table>
+        <tr valign="top">
+            <td><img src="{{ user.avatar(128) }}"></td>
+            <h1>{{ user.username }}</h1>
+            {% if user.about_me %} <p>{{ user.about_me }}</p> {% endif %}
+            {% if user.last_visited %} <p>{{ user.last_visited }}</p> {% endif %}
+        </tr>
+    </table>
+    <hr>
+
+
+    <h1>Dashboard <small>Welcome back {{ user.username }}</small></h1>
+    <table class="table table-striped">
+        <TH>
+         <H4><BR>Swim Data</H4>
+        </TH>
+        <tr>
+            <th>Date</th>
+            <th>Distance</th>
+            <th>Duration</th>
+            <th>Pace</th>
+            <th>Stroke Rate</th>
+            <th>Comments</th>
+        </tr>
+        {% for swim in swim_workouts %}
+        <tr>
+            <td>{{ swim.created_date }}</td>
+            <td>{{ swim.distance }}</td>
+            <td>{{ swim.duration }}</td>
+            <td>{{ swim.pace }}</td>
+            <td>{{ swim.stroke_rate }}</td>
+            <td>{{ swim.comments }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <BR>
+    <table class="table table-striped">
+        <TH>
+         <H4><BR>Bike Data</H4>
+        </TH>
+        <tr>
+            <td>Date</td>
+            <th>Distance</th>
+            <th>Duration</th>
+            <th>Pace</th>
+            <th>Heart Rate</th>
+            <th>Watts</th>
+            <th>Comments</th>
+        </tr>
+        {% for bike in bike_workouts %}
+        <tr>
+            <td> {{bike.date}} </td>
+            <td>{{ bike.distance }}</td>
+            <td>{{ bike.duration }}</td>
+            <td>{{ bike.pace }}</td>
+            <td>{{ bike.heart_rate }}</td>
+            <td>{{ bike.watts }}</td>
+            <td>{{ bike.comments }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <BR>
+    <table class="table table-striped">
+        <TH>
+         <H4><BR>Run Data</H4>
+        </TH>
+        <tr>
+            <th>Date</th>
+            <th>Distance</th>
+            <th>Duration</th>
+            <th>Pace</th>
+            <th>Heart Rate</th>
+            <th>Comments</th>
+        </tr>
+        {% for run in run_workouts %}
+        <tr>
+            <td>{{ run.date }}</td>
+            <td>{{ run.distance }}</td>
+            <td>{{ run.duration }}</td>
+            <td>{{ run.pace }}</td>
+            <td>{{ run.heart_rate }}</td>
+            <td>{{ run.comments }}</td>
+        </tr>
+        {% endfor%}
+    </table>
+
+{% endblock %}
