@@ -22,8 +22,6 @@ class User(UserMixin, db.Model):
     bike_workouts = db.relationship('WorkoutBike', backref='user')
     run_workouts = db.relationship('WorkoutRun', backref='user')
 
-
-
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
@@ -43,7 +41,7 @@ class WorkoutSwim(db.Model):
     created_date = db.Column(db.DateTime, default=datetime.utcnow)
     distance = db.Column(db.Float)
     duration = db.Column(db.Float)
-    pace = db.Column(db.Float)
+    pace = db.Column(db.String(5))
     stroke_rate = db.Column(db.Integer)
     comments = db.Column(db.String(128))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -57,7 +55,7 @@ class WorkoutBike(db.Model):
     created_date = db.Column(db.DateTime, default=datetime.utcnow)
     distance = db.Column(db.Float)
     duration = db.Column(db.Float)
-    pace = db.Column(db.Float)
+    pace =  db.Column(db.String(5))
     heart_rate = db.Column(db.Integer)
     watts = db.Column(db.Float)
     comments = db.Column(db.String(128))
@@ -71,7 +69,7 @@ class WorkoutRun(db.Model):
     created_date = db.Column(db.DateTime, default=datetime.utcnow)
     distance = db.Column(db.Float)
     duration = db.Column(db.Float)
-    pace = db.Column(db.Float)
+    pace =  db.Column(db.String(5))
     heart_rate = db.Column(db.Integer)
     comments = db.Column(db.String(128))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

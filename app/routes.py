@@ -87,6 +87,8 @@ def swim_workout():
         db.session.commit()
         flash('Congratulations, you have added a swim workout!')
         return redirect(url_for("index"))
+    if form.errors:
+        app.logger.debug(form.errors)
     return render_template("swim.html", title = "Add Swim Workout", form = form)
 
 

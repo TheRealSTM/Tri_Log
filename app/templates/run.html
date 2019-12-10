@@ -4,7 +4,7 @@
 <h1>Add Run</h1>
   {% from "includes/_formhelpers.html" import render_field %}
   <form method="POST" action="" novalidate>
-    {{ form.hidden_tag() }}
+    {{ form.csrf_token() }}
     <div class="form-group">
       {{ render_field(form.distance, class_="form-control") }}
     </div>
